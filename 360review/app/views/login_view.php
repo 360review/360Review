@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>360Review</title>
   </head>
   <body>
     <h1>Login page!!!</h1>
