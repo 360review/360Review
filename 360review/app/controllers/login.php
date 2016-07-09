@@ -9,6 +9,7 @@ class Login {
       $user = $users->login($_POST['email'], $_POST['password']);
       
       if ($user) {
+        $_SESSION["userId"] = $user[0]["id"];
         header("Location:  ".BASE_URL."home");
         exit();
       }
