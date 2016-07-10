@@ -2,6 +2,10 @@
 
   class Login {
     function index() {
+      if (isset($_SESSION) && !empty($_SESSION["userId"])) {
+        header("Location: " . BASE_URL . "home");
+      }
+
       if (isset($_POST) && !empty($_POST)) {
 
         require MODELS."usersModel.php";
@@ -10,7 +14,7 @@
 
         if ($user) {
           $_SESSION["userId"] = $user[0]["id"];
-          header("Location:  ".BASE_URL."home");
+          header("Location:  " . BASE_URL . "home");
           exit();
         }
         else {
@@ -18,6 +22,13 @@
         }
       }
       include VIEWS."login_view.php";
+    }
+
+    function logout() {
+      if (isset($_SESSION) && !empty($_SESSION["userId"])) {
+        session_destroy();
+        header("Location:  " . BASE_URL . "home");
+      }
     }
   }
 
