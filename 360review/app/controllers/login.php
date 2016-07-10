@@ -14,7 +14,7 @@
 
         if ($user) {
           $_SESSION["userId"] = $user[0]["id"];
-          header("Location:  " . BASE_URL . "home");
+          header("Location:  " . BASE_URL . "review");
           exit();
         }
         else {
