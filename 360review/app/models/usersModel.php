@@ -12,5 +12,10 @@
       $statement = $this->executeQuery("INSERT INTO users (first_name, last_name, team, email, password) values ('".$array["firstName"]."', '".$array["lastName"]."','".$array["team"]."','".$array["email"]."','".$array["password"]."');");
       return $this->db -> lastInsertId ();
     }
+
+    function getUsers() {
+      $statement = $this->executeQuery("SELECT id, first_name, last_name, email, team FROM users");
+      return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
   }
 ?>
