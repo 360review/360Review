@@ -3,7 +3,7 @@ class DB{
         protected $db;
 
         function __construct(){
-            $this->db = new PDO("mysql:host=localhost;dbname=360review", "roxanaopris", "");
+            $this->db = new PDO("mysql:host=localhost;dbname=360review", "root", "");
         }
 
         function executeQuery($val){
