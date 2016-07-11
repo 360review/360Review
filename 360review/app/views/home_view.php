@@ -9,6 +9,7 @@
 
     <?php if (isset($_SESSION) && !empty($_SESSION["userId"])) { ?>
         <a href="<?php echo BASE_URL . "login/logout"; ?>">Logout</a>
+        <a href="<?php echo BASE_URL . "review"; ?>">Review</a>
     <?php  } else { ?>
         <a href="<?php echo BASE_URL . "login"; ?>">Login</a>
         <a href="<?php echo BASE_URL . "register"; ?>">Register</a>

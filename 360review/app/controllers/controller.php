@@ -8,7 +8,8 @@
         "home"         => array("path"=>"home.php", "class"=>"Home"),
         "login"        => array("path"=>"login.php", "class"=>"Login"),
         "register"     => array("path"=>"register.php", "class"=>"Register"),
-        "review"       => array("path"=>"review.php", "class"=>"Review")
+        "review"       => array("path"=>"review.php", "class"=>"Review"),
+        "api"       => array("path"=>"Api/api.php", "class"=>"Api")
       );
 
       $uri = $_SERVER["PATH_INFO"];
