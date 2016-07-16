@@ -3,6 +3,7 @@
 require_once "dbModel.php";
 
 class GradesModel extends DB {
+
   function addGrade($grades) { //What one user graded
 
     $columns = implode(", ", array_keys($grades));
@@ -13,5 +14,28 @@ class GradesModel extends DB {
     $this->executeQuery($sql);
 
 //    return $this->db->lastInsertId();
+  }
+
+  function getSelfGrades() {
+    $sql = "SELECT grades.grade, competencies.name as competence
+            FROM grades
+            INNER JOIN competencies
+            ON competencies.id=grades.competence_id
+            WHERE (grades.user_id='".$_SESSION["userId"]."') && (grades.voter_id='".$_SESSION["userId"]."')";
+
+    $statement = $this->executeQuery($sql);
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+  function getTeamGrades() {
+    $sql = "SELECT grades.grade, competencies.name AS competence, users.first_name AS team_member
+            FROM grades JOIN competencies ON competencies.id=grades.competence_id
+            JOIN users ON users.id = grades.voter_id
+            WHERE (grades.user_id='".$_SESSION['userId']."' ) &&
+            (grades.sprint = 'sprint1') && (grades.voter_id<>grades.user_id)
+            ORDER BY grades.voter_id";
+
+    $statement = $this->executeQuery($sql);
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
   }
 }

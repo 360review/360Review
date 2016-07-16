@@ -1,5 +1,5 @@
 <?php
-    
+
     define("BASE_URL","http://localhost:8080/360review/");
     define("MODELS","app/models/");
     define("VIEWS","app/views/");

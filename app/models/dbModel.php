@@ -12,6 +12,6 @@ class DB{
             return $sth;
         }
     }
-    
+
 
 ?>

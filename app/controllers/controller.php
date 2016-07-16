@@ -9,7 +9,7 @@
         "login"        => array("path"=>"login.php", "class"=>"Login"),
         "register"     => array("path"=>"register.php", "class"=>"Register"),
         "review"       => array("path"=>"review.php", "class"=>"Review"),
-        "api"       => array("path"=>"Api/api.php", "class"=>"Api")
+        "api"          => array("path"=>"Api/api.php", "class"=>"Api")
       );
 
       $uri = $_SERVER["PATH_INFO"];
@@ -25,7 +25,7 @@
         }
         else {
           http_response_code(404);
-          include VIEWS."error_view.php";
+          //include VIEWS."error_view.php";
           exit;
         }
       }

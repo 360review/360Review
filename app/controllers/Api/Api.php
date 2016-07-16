@@ -1,9 +1,7 @@
 <?php
 
   class Api {
-    function index() {
-      echo "index";
-    }
+
     function getUsers() {
       header('Content-Type: application/json');
 
@@ -20,5 +18,23 @@
       $competenciesModel = new competenciesModel();
       $competencies = $competenciesModel->getCompetencies();
       echo json_encode($competencies);
+    }
+
+    function getSelfGrades() {
+      header("Content-Type: application/json");
+
+      require_once MODELS ."GradesModel.php";
+      $gradesModel = new GradesModel();
+      $grades = $gradesModel->getSelfGrades();
+      echo json_encode($grades);
+    }
+
+    function getTeamGrades() {
+      header("Content-Type: application/json");
+
+      require_once MODELS . "GradesModel.php";
+      $gradesModel = new GradesModel();
+      $grades = $gradesModel->getTeamGrades();
+      echo json_encode($grades);
     }
   }
