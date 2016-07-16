@@ -53,4 +53,3 @@ class GradesModel extends DB {
     $statement = $this->executeQuery($sql);
     return $statement->fetchAll(PDO::FETCH_ASSOC);
   }
-}
